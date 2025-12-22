@@ -1,0 +1,46 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+
+@layer components {
+  .input-field {
+    @apply w-full border border-gray-400 rounded px-3 py-2 bg-gray-50 
+           focus:outline-none focus:ring-2 focus:ring-gray-300 
+           transition;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 bg-gray-300 text-gray-900 rounded 
+           hover:bg-gray-400 transition;
+  }
+
+  .form-div {
+    @apply border border-gray-300 rounded-md p-5 w-full max-w-sm mb-6;
+  }
+
+  .posts-btn {
+    @apply px-4 py-2 bg-gray-100 text-gray-900 rounded border border-black
+            hover:bg-gray-950 hover:text-white transition;
+  }
+
+  .create-post-btn {
+    @apply bg-gray-900 border border-white rounded-3xl text-gray-300 px-5 py-1 text-[17px] 
+            hover:cursor-pointer hover:border-2
+  }
+}
+
+
+@media (max-width: 700px) {
+    body {
+        background-color: black;
+    }
+}

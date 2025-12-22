@@ -1,0 +1,54 @@
+version: '3.9'
+
+services:
+  app:  # Your Laravel/PHP container
+    image: lvl-postgres:latest
+    container_name: laravel-app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - .:/var/www  # Sync your local code with the container
+    networks:
+      - laravel-net
+
+  nginx:  # Web server to serve your app
+    image: nginx:alpine
+    container_name: laravel-nginx
+    restart: unless-stopped
+    ports:
+      - "8000:80"  # Access app on http://localhost:8000
+    volumes:
+      - .:/var/www  # Share code
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d  # Nginx config
+    depends_on:
+      - app  # Start after PHP container
+    networks:
+      - laravel-net
+
+  db:  # PostgreSQL database (replaces MySQL)
+    image: postgres:16
+    container_name: laravel-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: laravel
+      POSTGRES_USER: sail
+      POSTGRES_PASSWORD: password
+      # No ROOT_PASSWORD needed; POSTGRES_PASSWORD acts as superuser password
+    volumes:
+      - pgsql-data:/var/lib/postgresql/data  # Persist data
+    ports:
+      - "5432:5432"  # Access DB externally if needed (e.g., via pgAdmin)
+    networks:
+      - laravel-net
+    healthcheck:  # Optional but recommended for reliability
+      test: ["CMD-SHELL", "pg_isready -U sail -d laravel"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgsql-data:  # Named volume for PostgreSQL data
+
+networks:
+  laravel-net:  # Internal network for containers to talk
+    driver: bridge
