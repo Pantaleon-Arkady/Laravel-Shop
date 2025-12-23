@@ -36,6 +36,35 @@
     @apply bg-gray-900 border border-white rounded-3xl text-gray-300 px-5 py-1 text-[17px] 
             hover:cursor-pointer hover:border-2
   }
+
+  .header-links {
+    
+  }
+}
+
+/* PURE CSS */
+
+.underline-hover {
+    color: white;
+    position: relative;
+    cursor: pointer;
+}
+
+.underline-hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: white;
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform 0.25s ease-out;
+}
+
+.underline-hover:hover::after {
+    transform: scaleX(1);
 }
 
 

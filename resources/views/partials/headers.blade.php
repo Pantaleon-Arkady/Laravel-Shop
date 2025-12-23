@@ -12,7 +12,9 @@
             </div>
         
             <div class="ml-auto">
-                Right
+                <a href="/trials" class="underline-hover">
+                    Trials?
+                </a>
             </div>
         </div>
     @else

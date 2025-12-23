@@ -13,6 +13,28 @@ Route::get('/laravel-welcome', function () {
 
 Route::get('/', [GeneralController::class, 'homePage']);
 
+// Quick CRUD Users
+
+Route::post('/user-register', [CrudUserController::class, 'userRegister']);
+Route::post('/user-login', [CrudUserController::class, 'userLogin']);
+Route::get('/user-logout', [CrudUserController::class, 'userLogout']);
+
+// Quick CRUD Posts
+
+Route::post('/create-post', [PostController::class, 'createPost']);
+Route::get('/edit-post/{post}', [PostController::class, 'editPost']);
+Route::put('/update-post/{post}', [PostController::class, 'updatePost']);
+Route::delete('/delete-post/{post}', [PostController::class, 'deletePost']);
+
+// Trials
+
+Route::get('/trials', function () {
+    return view('layouts.trials');
+});
+
+
+// Others
+
 Route::get('/another-home', function () {
     return view('pages.another');
 });
@@ -42,17 +64,4 @@ Route::get('/home', function () {
 
     return view('home', ['allPosts' => $allPosts, 'userPosts' => $userPosts, 'userId' => $userId]);
 });
-
-// Quick CRUD Users
-
-Route::post('/user-register', [CrudUserController::class, 'userRegister']);
-Route::post('/user-login', [CrudUserController::class, 'userLogin']);
-Route::get('/user-logout', [CrudUserController::class, 'userLogout']);
-
-// Quick CRUD Posts
-
-Route::post('/create-post', [PostController::class, 'createPost']);
-Route::get('/edit-post/{post}', [PostController::class, 'editPost']);
-Route::put('/update-post/{post}', [PostController::class, 'updatePost']);
-Route::delete('/delete-post/{post}', [PostController::class, 'deletePost']);
 
