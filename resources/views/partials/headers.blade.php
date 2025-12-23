@@ -2,7 +2,7 @@
     @auth
         <div class="relative flex items-center">
             <div>
-                <h3 class="text-[30px] font-semibold text-white">Headers authenticated</h3>
+                <h3 class="text-[30px] font-semibold text-white">Shop</h3>
             </div>
         
             <div class="absolute left-1/2 -translate-x-1/2">
@@ -16,7 +16,7 @@
             </div>
         </div>
     @else
-        <h3 class="text-[30px] font-semibold text-white">Headers</h3>
+        <h3 class="text-[30px] font-semibold text-white">Shop</h3>
     @endauth
 </div>
 

@@ -13,7 +13,7 @@ class PostController extends Controller
     {
         if (Auth::id() === $post['user_id']) {
             $post->delete();
-            return redirect('/home');
+            return redirect('/');
         }
         return "<h1>NO ACCESS</h1>";
     }
@@ -37,7 +37,7 @@ class PostController extends Controller
             'content' => $dataInput['content']
         ]);
 
-        return redirect('/home');
+        return redirect('/');
     }
 
     public function editPost(Post $post)
@@ -66,6 +66,6 @@ class PostController extends Controller
             'user_id' => $dataInput['user_id']
         ]);
 
-        return redirect('/home');
+        return redirect('/');
     }
 }

@@ -11,7 +11,7 @@ Route::get('/laravel-welcome', function () {
     return view('welcome');
 });
 
-Route::get('/home', [GeneralController::class, 'homePage']);
+Route::get('/', [GeneralController::class, 'homePage']);
 
 Route::get('/another-home', function () {
     return view('pages.another');
@@ -27,7 +27,7 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::get('/', function () {
+Route::get('/home', function () {
 
     $allPosts = Post::all();
     $userPosts = [];

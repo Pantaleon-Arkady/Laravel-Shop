@@ -42,7 +42,7 @@ class CrudUserController extends Controller
         ])) {
             $request->session()->regenerate();
 
-            return redirect('/home');
+            return redirect('/');
         }
 
         return back()->withErrors([
@@ -57,6 +57,6 @@ class CrudUserController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/home');
+        return redirect('/');
     }
 }
