@@ -46,6 +46,14 @@ class GeneralController extends Controller
 
     public static function shopPage()
     {
-        return view('pages.shop');
+        $admin = false;
+
+        if (Auth::check() && Auth::user()->role === 'admin') {
+            $admin = true;
+        }
+
+        return view('pages.shop', [
+            'admin' => $admin
+        ]);
     }
 }
