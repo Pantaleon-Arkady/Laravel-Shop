@@ -2,7 +2,7 @@
     @auth
         <div class="relative flex items-center">
             <div>
-                <h3 class="text-[30px] font-semibold text-white">Shop</h3>
+                <button class="page-button-hover">Shop</button>
             </div>
         
             <div class="absolute left-1/2 -translate-x-1/2">
