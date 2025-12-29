@@ -13,6 +13,7 @@ Route::get('/laravel-welcome', function () {
 });
 
 Route::get('/', [GeneralController::class, 'homePage']);
+Route::get('/shop', [GeneralController::class, 'shopPage']);
 
 // Quick CRUD Users
 

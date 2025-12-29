@@ -2,7 +2,7 @@
     @auth
         <div class="relative flex items-center">
             <div>
-                <button class="page-button-hover">Shop</button>
+                <a href="/shop" class="page-button-hover">Shop</a>
             </div>
         
             <div class="absolute left-1/2 -translate-x-1/2">

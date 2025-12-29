@@ -43,4 +43,9 @@ class GeneralController extends Controller
             'userId' => $userId
         ]);
     }
+
+    public static function shopPage()
+    {
+        return view('pages.shop');
+    }
 }
