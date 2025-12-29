@@ -6,6 +6,7 @@ use App\Http\Controllers\GeneralController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\FileUploadController;
 
 Route::get('/laravel-welcome', function () {
     return view('welcome');
@@ -31,6 +32,9 @@ Route::delete('/delete-post/{post}', [PostController::class, 'deletePost']);
 Route::get('/trials', function () {
     return view('layouts.trials');
 });
+
+Route::get('/upload', [FileUploadController::class, 'create']);
+Route::post('/upload', [FileUploadController::class, 'store'])->name('file.store');
 
 
 // Others

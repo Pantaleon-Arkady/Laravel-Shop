@@ -9,6 +9,7 @@
 <body class="flex justify-center items-center">
     <div class="trials-div border border-black px-5 py-3">
         Trials Page init
+        @include('partials.trials.file-upload')
     </div>
 </body>
 </html>
