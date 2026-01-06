@@ -12,8 +12,8 @@
             </div>
         
             <div class="ml-auto">
-                <a href="/trials" class="underline-hover">
-                    Trials?
+                <a href="/user-logout" class="px-4 py-2 bg-white text-black rounded hover:bg-gray-800 hover:border-2 hover:border-white hover:text-white transition">
+                    Log out
                 </a>
             </div>
         </div>
