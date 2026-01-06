@@ -10,8 +10,8 @@
         <textarea name="content" class="input-field" placeholder="Type in what you want to post..." ></textarea>
 
         <button type="submit"
-                class="btn-secondary">
-            Create Post
+                class="body-buttons">
+            Create Post?
         </button>
     </form>
 </div>

@@ -1,8 +1,8 @@
 <div class="text-center space-y-4">
     <h3 class="text-2xl font-semibold">App Home Page</h3>
     <div>
-        <button class="posts-btn" onclick="showAllPosts()">All Posts</button>
-        <button class="posts-btn" onclick="showMyPosts()">My Posts</button>
+        <button class="body-buttons" onclick="showAllPosts()">All Posts</button>
+        <button class="body-buttons" onclick="showMyPosts()">My Posts</button>
     </div>
     <div class="form-div" id="allPosts">
         <h3 class="text-2xl font-semibold">All Posts</h3>

@@ -29,11 +29,11 @@
     }
 
     .header-buttons {
-        @apply px-4 py-2 bg-white text-black rounded hover:bg-gray-800 hover:border-2 hover:border-white hover:text-white transition;
+        @apply px-4 py-2 bg-white text-black rounded hover:bg-gray-900 hover:border-2 hover:border-white hover:text-white transition;
     }
 
     .body-buttons {
-        @apply px-4 py-2 bg-black text-white rounded hover:bg-gray-800 hover:border-2 hover:border-white hover:text-white transition;
+        @apply px-4 py-2 bg-black text-white rounded hover:bg-gray-100 hover:border-2 hover:border-black hover:text-black transition;
     }
 
     .header-links {}

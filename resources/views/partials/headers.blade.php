@@ -31,7 +31,6 @@
         id="backdrop"
         class="absolute inset-0 bg-black/50"
     ></div>
-
     <div class="relative bg-white rounded-lg shadow-lg w-full max-w-md p-6 z-10" id="postForm">
         <div class="flex flex-row justify-between">
             <h3 class="text-xl font-semibold mb-3">Create a New Post?</h3>
@@ -53,7 +52,7 @@
             <textarea name="content" class="input-field" placeholder="Type in what you want to post..." ></textarea>
     
             <button type="submit"
-                    class="btn-secondary">
+                    class="body-buttons">
                 Create Post
             </button>
         </form>
