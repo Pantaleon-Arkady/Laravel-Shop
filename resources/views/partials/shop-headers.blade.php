@@ -11,10 +11,10 @@
                 </div>
             
                 <div class="ml-auto">
-                    <a href="/trials" class="underline-hover">
+                    <a href="/trials" class="header-buttons mr-2">
                         Trials?
                     </a>
-                    <a href="/user-logout" class="px-4 py-2 bg-white text-black rounded hover:bg-gray-800 hover:border-2 hover:border-white hover:text-white transition">
+                    <a href="/user-logout" class="header-buttons">
                         Log out
                     </a>
                 </div>
@@ -29,7 +29,7 @@
                 </div>
             
                 <div class="ml-auto">
-                    <a href="/user-logout" class="px-4 py-2 bg-white text-black rounded hover:bg-gray-800 hover:border-2 hover:border-white hover:text-white transition">
+                    <a href="/user-logout" class="header-buttons">
                         Log out
                     </a>
                 </div>

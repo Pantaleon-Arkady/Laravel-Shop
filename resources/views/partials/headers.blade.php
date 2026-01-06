@@ -6,13 +6,13 @@
             </div>
         
             <div class="absolute left-1/2 -translate-x-1/2">
-                <button id="openModal" class="create-post-btn">
+                <button id="openModal" class="header-buttons">
                     Create a Post?
                 </button>
             </div>
         
             <div class="ml-auto">
-                <a href="/user-logout" class="px-4 py-2 bg-white text-black rounded hover:bg-gray-800 hover:border-2 hover:border-white hover:text-white transition">
+                <a href="/user-logout" class="header-buttons">
                     Log out
                 </a>
             </div>
