@@ -65,7 +65,7 @@
             </button>
         </div>
     
-        <form action="/create-product" method="POST" class="space-y-3" enctype="multipart/form-data">
+        <form action="{{ route('products.store') }}" method="POST" class="space-y-3" enctype="multipart/form-data">
             @csrf
     
             <input type="text" name="name" placeholder="Product Name..."
