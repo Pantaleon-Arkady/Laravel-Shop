@@ -74,10 +74,10 @@
             <textarea name="description" class="input-field" placeholder="Product Description" ></textarea>
 
             <div class="flex flex-col gap-2">
-                <span class="text-sm font-medium">Add files:</span>
+                <span class="text-sm font-medium">Main Product Picture:</span>
             
                 <label
-                    for="file_upload"
+                    for="thumbnail"
                     class="w-24 h-24 border-2 border-black flex items-center justify-center cursor-pointer rounded-2xl
                            hover:bg-gray-200 transition"
                 >
@@ -86,8 +86,27 @@
             
                 <input
                     type="file"
-                    id="file_upload"
-                    name="file_upload"
+                    id="thumbnail"
+                    name="thumbnail"
+                    class="hidden"
+                />
+            </div>
+
+            <div class="flex flex-col gap-2">
+                <span class="text-sm font-medium">Add Proudct Pictures:</span>
+            
+                <label
+                    for="images"
+                    class="w-24 h-24 border-2 border-black flex items-center justify-center cursor-pointer rounded-2xl
+                           hover:bg-gray-200 transition"
+                >
+                    <span class="text-5xl font-bold text-black">+</span>
+                </label>
+            
+                <input
+                    type="file"
+                    id="images"
+                    name="images"
                     class="hidden"
                     multiple
                 />
@@ -104,7 +123,7 @@
         
                 <!-- Number Input -->
                 <input type="number"
-                        name="stocks"
+                        name="stock"
                         value="1"
                         min="0"
                         class="bg-white text-black text-center font-medium text-base border border-gray-800 h-10 w-20 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
