@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\ProductsController;
 
 Route::get('/laravel-welcome', function () {
     return view('welcome');
@@ -28,6 +29,7 @@ Route::get('/edit-post/{post}', [PostController::class, 'editPost']);
 Route::put('/update-post/{post}', [PostController::class, 'updatePost']);
 Route::delete('/delete-post/{post}', [PostController::class, 'deletePost']);
 
+// <---     ADMIN     --->
 // Trials
 
 Route::get('/trials', function () {
@@ -37,6 +39,8 @@ Route::get('/trials', function () {
 Route::get('/upload', [FileUploadController::class, 'create']);
 Route::post('/upload', [FileUploadController::class, 'store'])->name('file.store');
 
+Route::post('/products', [ProductsController::class, 'store'])
+    ->name('products.store');
 
 // Others
 
