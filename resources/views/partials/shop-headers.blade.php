@@ -73,6 +73,9 @@
     
             <textarea name="description" class="input-field" placeholder="Product Description" ></textarea>
 
+            <span>Price:</span>
+            <input type="number" name="price" step="0.01" class="input-field">
+
             <div class="flex flex-col gap-2">
                 <span class="text-sm font-medium">Main Product Picture:</span>
             
