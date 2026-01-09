@@ -106,15 +106,20 @@
 /* Admin Shop Mod */
 
 .admin_shop_main {
-    width: 100%;
+    min-height: 650px;
+}
+
+.shop_right_content {
+    min-height: 400px;
+    border-radius: 10px;
 }
 
 .shop_left {
-    width: 30%;
+    width: 25%;
 }
 
 .shop_right {
-    width: 70%;
+    width: 75%;
 }
 
 
