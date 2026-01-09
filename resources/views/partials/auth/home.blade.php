@@ -1,10 +1,10 @@
-<div class="text-center space-y-4">
+<div class="text-center space-y-4 flex flex-col items-center">
     <h3 class="text-2xl font-semibold">App Home Page</h3>
     <div>
         <button class="body-buttons" onclick="showAllPosts()">All Posts</button>
         <button class="body-buttons" onclick="showMyPosts()">My Posts</button>
     </div>
-    <div class="form-div" id="allPosts">
+    <div class="posts_div" id="allPosts">
         <h3 class="text-2xl font-semibold">All Posts</h3>
         @foreach ($allPosts as $post)
             <div class="border border-gray-400 p-4 mt-3">
@@ -25,7 +25,7 @@
             </div>
         @endforeach
     </div>
-    <div class="form-div" id="userPosts">
+    <div class="posts_div" id="userPosts">
         <h3 class="text-2xl font-semibold">User Posts</h3>
         @foreach ($userPosts as $post)
             <div class="border border-gray-400 p-4 mt-3">
