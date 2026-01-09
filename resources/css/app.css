@@ -103,6 +103,20 @@
     color: white;
 }
 
+/* Admin Shop Mod */
+
+.admin_shop_main {
+    width: 100%;
+}
+
+.shop_left {
+    width: 30%;
+}
+
+.shop_right {
+    width: 70%;
+}
+
 
 @media (max-width: 700px) {
     body {

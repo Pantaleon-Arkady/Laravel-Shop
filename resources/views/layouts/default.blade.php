@@ -12,7 +12,7 @@
     <header class="w-full sticky top-0 z-50">
         @yield('header')
     </header>
-    <div class="flex-1 overflow-y-auto flex-col justify-between">
+    <div class="w-full flex-1 overflow-y-auto flex-col justify-between">
         <main>
             @yield('body-content')
         </main>
