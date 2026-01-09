@@ -109,7 +109,7 @@
                 <input
                     type="file"
                     id="images"
-                    name="images"
+                    name="images[]"
                     class="hidden"
                     multiple
                 />
