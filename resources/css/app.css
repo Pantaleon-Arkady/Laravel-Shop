@@ -44,6 +44,10 @@
         @apply bg-black text-white hover:bg-gray-100 hover:text-black focus:outline-none h-10 w-10 rounded-r-md border border-l-0 border-gray-800 flex items-center justify-center text-lg font-medium transition-colors duration-150;
     }
 
+    .product_card {
+        @apply rounded border border-black
+    }
+
     .header-links {}
 }
 
@@ -120,6 +124,11 @@
 
 .shop_right {
     width: 75%;
+}
+
+.product_card {
+    flex: 0 0 calc(25% - 1.5rem);
+    height: 300px;
 }
 
 
