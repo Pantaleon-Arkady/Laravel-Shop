@@ -3,22 +3,22 @@
         <div class="admin_shop_main flex flex-row">
             <div class="shop_left">left</div>
             <div class="shop_right p-5">
-                <div class="shop_right_content w-full bg-white flex flex-wrap justify-around p-7">
+                <div class="shop_right_content w-full bg-white flex flex-wrap justify-center gap-8 p-7">
                     @foreach ($products as $product)
-                        <a href="/edit-product/{{$product->id}}" class="product_card">
+                        <a href="/edit-product/{{$product->id}}" class="product_card ">
 
                             <img
                                 src="{{ asset('storage/' . $product->thumbnail) }}"
                                 alt="{{ $product->name }}"
-                                class="w-full h-48 object-cover rounded"
-                            >
+                                class="w-full h-48 object-cover transition-all duration-300"
+                            />
 
                             <div class="p-3">
                                 <h3 class="font-semibold text-lg">
                                     {{ $product->name }}
                                 </h3>
                 
-                                <p class="text-sm text-gray-600 line-clamp-1">
+                                <p class="text-sm line-clamp-1">
                                     {{ $product->description }}
                                 </p>
                 
