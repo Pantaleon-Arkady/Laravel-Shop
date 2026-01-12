@@ -45,7 +45,7 @@
     }
 
     .product_card {
-        @apply rounded border border-black
+        @apply rounded border-2 border-black
     }
 
     .header-links {}

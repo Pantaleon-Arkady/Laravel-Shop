@@ -5,7 +5,7 @@
             <div class="shop_right p-5">
                 <div class="shop_right_content w-full bg-white flex flex-wrap justify-around p-7">
                     @foreach ($products as $product)
-                        <div class="product_card">
+                        <a href="/edit-product/{{$product->id}}" class="product_card">
 
                             <img
                                 src="{{ asset('storage/' . $product->thumbnail) }}"
@@ -18,7 +18,7 @@
                                     {{ $product->name }}
                                 </h3>
                 
-                                <p class="text-sm text-gray-600 line-clamp-2">
+                                <p class="text-sm text-gray-600 line-clamp-1">
                                     {{ $product->description }}
                                 </p>
                 
@@ -34,7 +34,7 @@
                                     @endif
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     @endforeach
                 </div>                
             </div>
