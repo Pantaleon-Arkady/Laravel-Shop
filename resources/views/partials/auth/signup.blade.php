@@ -1,4 +1,4 @@
-<div class="flex mt-20">
+<div class="flex mt-20 items-center justify-center">
     <div>
         <div class="border border-gray-400 p-4 rounded-md">
             <h3 class="text-[30px] font-semibold">First Laravel App</h3>
