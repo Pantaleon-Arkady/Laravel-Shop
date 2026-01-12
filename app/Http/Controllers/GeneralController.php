@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
+use App\Models\Product;
 
 class GeneralController extends Controller
 {
@@ -47,13 +48,15 @@ class GeneralController extends Controller
     public static function shopPage()
     {
         $admin = false;
+        $products = Product::all();
 
         if (Auth::check() && Auth::user()->role === 'admin') {
             $admin = true;
         }
 
         return view('pages.shop', [
-            'admin' => $admin
+            'admin' => $admin,
+            'products' => $products
         ]);
     }
 }
