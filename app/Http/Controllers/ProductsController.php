@@ -5,9 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\File;
+use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
 {
+    public function editProduct(Product $product)
+    {
+        if (Auth::check() && Auth::user()->role === 'admin') {
+            return view('partials.edit-product', ['product' => $product]);
+        }
+
+        return "<h1>NO ACCESS</h1>";
+    }
+
     public function store(Request $request)
     {
         $validated = $request->validate([

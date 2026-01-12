@@ -42,6 +42,8 @@ Route::post('/upload', [FileUploadController::class, 'store'])->name('file.store
 Route::post('/products', [ProductsController::class, 'store'])
     ->name('products.store');
 
+Route::get('/edit-product/{product}', [ProductsController::class, 'editProduct']);
+
 // Others
 
 Route::get('/another-home', function () {
