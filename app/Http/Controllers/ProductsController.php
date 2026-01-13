@@ -6,9 +6,61 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\File;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProductsController extends Controller
 {
+    public function updateProductImages(Request $request, Product $product)
+    {
+        if (!Auth::check() || Auth::user()->role !== 'admin') {
+            abort(403);
+        }
+
+        $validated = $request->validate([
+            'thumbnail' => [
+                'nullable',
+                File::image()->max(2 * 1024),
+            ],
+            'images.*' => [
+                'nullable',
+                File::image()->max(2 * 1024),
+            ],
+        ]);
+
+        // ─────────────────────────────
+        // 1. Update thumbnail
+        // ─────────────────────────────
+        if ($request->hasFile('thumbnail')) {
+
+            // Delete old thumbnail if exists
+            if ($product->thumbnail) {
+                Storage::disk('public')->delete($product->thumbnail);
+            }
+
+            $product->thumbnail = $request
+                ->file('thumbnail')
+                ->store('products/thumbnails', 'public');
+        }
+
+        // ─────────────────────────────
+        // 2. Append new gallery images
+        // ─────────────────────────────
+        $existingImages = $product->images ?? [];
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $existingImages[] = $image
+                    ->store('products/images', 'public');
+            }
+        }
+
+        $product->images = $existingImages;
+
+        $product->save();
+
+        return back()->with('success', 'Product images updated successfully!');
+    }
+    
     public function updateProduct(Request $request, Product $product)
     {
         if (!Auth::check() || Auth::user()->role !== 'admin') {
