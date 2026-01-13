@@ -6,19 +6,155 @@
     <title>Document</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="flex items-center justify-center">
-    <div class="form-div">
+<body class="flex items-center justify-center bg-black">
+    <div class="edit-form-div flex flex-col p-4 bg-white">
         <h1>Editing Product</h1>
-        <form class="space-y-3" action="/update-product/{{$product->id}}" method="POST">
-            @csrf
-            @method('PUT')
+        <div class="border-2 border-black p-4 flex flex-row">
+            <form action="/update-product/{{$product->id}}"
+                    method="POST"
+                    class="space-y-3 border border-black p-3 edit-data-form">
+            
+                @csrf
+                @method('PUT')
 
-            <input class="input-field" type="text" name="name" value="{{$product->name}}" />
+                <input
+                    type="text"
+                    name="name"
+                    value="{{$product->name}}"
+                    placeholder="Product Name..."
+                    class="input-field"
+                />
 
-            <textarea class="input-field" name="description">{{$product->description}}</textarea>
+                <textarea
+                    name="description"
+                    class="input-field"
+                    placeholder="Product Description"
+                >{{$product->description}}</textarea>
 
-            <button class="posts-btn" type="submit">Update Product</button>
-        </form>
+                <div class="flex flex-col gap-1">
+                    <span>Price:</span>
+                    <input
+                        type="number"
+                        name="price"
+                        step="0.01"
+                        value="{{$product->price}}"
+                        class="input-field"
+                    />
+                </div>
+
+                <div class="relative inline-flex items-center">
+
+                    <button type="button"
+                        onclick="this.nextElementSibling.stepDown(); this.nextElementSibling.dispatchEvent(new Event('input'))"
+                        class="left-number-input-toggle">
+                        −
+                    </button>
+
+                    <input
+                        type="number"
+                        name="stock"
+                        value="{{$product->stock}}"
+                        min="0"
+                        class="bg-white text-black text-center font-medium text-base border border-gray-800 h-10 w-20
+                                focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                    />
+
+                    <button type="button"
+                        onclick="this.previousElementSibling.stepUp(); this.previousElementSibling.dispatchEvent(new Event('input'))"
+                        class="right-number-input-toggle">
+                        +
+                    </button>
+                </div>
+            
+                <br>
+            
+                <button type="submit" class="body-buttons">
+                    Update Product
+                </button>
+            </form>
+            <form action="/update-product-images/{{$product->id}}"
+                    method="POST"
+                    enctype="multipart/form-data"
+                    class="space-y-4 border border-black p-3 edit-images-form">
+            
+                @csrf
+                @method('PUT')
+
+                <div class="flex flex-col gap-2">
+                    <span class="text-sm font-medium">Main Product Picture:</span>
+            
+                    <label
+                        for="thumbnail"
+                        class="w-24 h-24 border-2 border-black flex items-center justify-center
+                            cursor-pointer rounded-2xl hover:bg-gray-200 transition overflow-hidden"
+                    >
+                        @if ($product->thumbnail)
+                            <img
+                                src="{{ asset('storage/' . $product->thumbnail) }}"
+                                class="w-full h-full object-cover"
+                            />
+                        @else
+                            <span class="text-5xl font-bold text-black">+</span>
+                        @endif
+                    </label>
+            
+                    <input
+                        type="file"
+                        id="thumbnail"
+                        name="thumbnail"
+                        accept="image/*"
+                        class="hidden"
+                    />
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <span class="text-sm font-medium">Add Product Pictures:</span>
+            
+                    <label
+                        for="images"
+                        class="w-24 h-24 border-2 border-black flex items-center justify-center
+                                cursor-pointer rounded-2xl hover:bg-gray-200 transition"
+                    >
+                        <span class="text-5xl font-bold text-black">+</span>
+                    </label>
+            
+                    <input
+                        type="file"
+                        id="images"
+                        name="images[]"
+                        accept="image/*"
+                        multiple
+                        class="hidden"
+                    />
+
+                    <div id="imagesPreview" class="flex gap-2 flex-wrap mt-2">
+                        @if (!empty($product->images))
+                            @foreach ($product->images as $image)
+                                <div class="relative w-24 h-24">
+                                    <img
+                                        src="{{ asset('storage/' . $image) }}"
+                                        class="w-full h-full object-cover rounded-xl border"
+                                    />
+                    
+                                    {{-- Optional delete button --}}
+                                    <button
+                                        type="button"
+                                        class="absolute top-1 right-1 bg-white text-red-600 rounded-full w-6 h-6 text-sm flex items-center justify-center shadow"
+                                        data-image="{{ $image }}"
+                                    >
+                                        ✕
+                                    </button>
+                                </div>
+                            @endforeach
+                        @endif
+                    </div>
+                </div>
+            
+                <button type="submit" class="body-buttons">
+                    Update Images
+                </button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
