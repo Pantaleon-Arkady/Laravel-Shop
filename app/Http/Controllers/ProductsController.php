@@ -9,6 +9,29 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
 {
+    public function updateProduct(Request $request, Product $product)
+    {
+        if (!Auth::check() || Auth::user()->role !== 'admin') {
+            abort(403);
+        }
+
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'description' => ['nullable', 'string'],
+            'price' => ['required', 'numeric', 'min:0'],
+            'stock' => ['required', 'integer', 'min:0'],
+        ]);
+
+        $product->update([
+            'name' => $validated['name'],
+            'description' => $validated['description'] ?? null,
+            'price' => $validated['price'],
+            'stock' => $validated['stock'],
+        ]);
+
+        return back()->with('success', 'Product updated successfully!');
+    }
+
     public function editProduct(Product $product)
     {
         if (Auth::check() && Auth::user()->role === 'admin') {

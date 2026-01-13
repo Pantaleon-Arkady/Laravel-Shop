@@ -41,8 +41,8 @@ Route::post('/upload', [FileUploadController::class, 'store'])->name('file.store
 
 Route::post('/products', [ProductsController::class, 'store'])
     ->name('products.store');
-
 Route::get('/edit-product/{product}', [ProductsController::class, 'editProduct']);
+Route::put('/update-product/{product}', [ProductsController::class, 'updateProduct']);
 
 // Others
 
