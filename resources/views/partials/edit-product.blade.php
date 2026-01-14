@@ -157,4 +157,31 @@
         </div>
     </div>
 </body>
+<script>
+    document.addEventListener('click', function (e) {
+        if (!e.target.matches('[data-image]')) return;
+    
+        if (!confirm('Delete this image?')) return;
+    
+        const imagePath = e.target.dataset.image;
+        const productId = "{{ $product->id }}";
+    
+        fetch(`/delete-product-image/${productId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+            },
+            body: JSON.stringify({ image: imagePath }),
+        })
+        .then(res => res.ok ? res.json() : Promise.reject())
+        .then(() => {
+            e.target.closest('.relative').remove();
+        })
+        .catch(() => {
+            alert('Failed to delete image');
+        });
+    });
+</script>
+    
 </html>

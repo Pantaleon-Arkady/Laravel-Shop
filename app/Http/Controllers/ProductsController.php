@@ -10,6 +10,39 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductsController extends Controller
 {
+    public function deleteProductImage(Request $request, Product $product)
+    {
+        if (!Auth::check() || Auth::user()->role !== 'admin') {
+            abort(403);
+        }
+
+        $validated = $request->validate([
+            'image' => ['required', 'string'],
+        ]);
+
+        $imagePath = $validated['image'];
+
+        // Ensure image exists in product images array
+        if (!in_array($imagePath, $product->images ?? [])) {
+            return response()->json(['message' => 'Image not found'], 404);
+        }
+
+        // Delete file from storage
+        Storage::disk('public')->delete($imagePath);
+
+        // Remove image path from array
+        $product->images = array_values(
+            array_filter(
+                $product->images,
+                fn ($img) => $img !== $imagePath
+            )
+        );
+
+        $product->save();
+
+        return response()->json(['message' => 'Image deleted']);
+    }
+
     public function updateProductImages(Request $request, Product $product)
     {
         if (!Auth::check() || Auth::user()->role !== 'admin') {
@@ -60,7 +93,7 @@ class ProductsController extends Controller
 
         return back()->with('success', 'Product images updated successfully!');
     }
-    
+
     public function updateProduct(Request $request, Product $product)
     {
         if (!Auth::check() || Auth::user()->role !== 'admin') {

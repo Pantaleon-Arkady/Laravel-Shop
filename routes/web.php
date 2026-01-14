@@ -44,6 +44,11 @@ Route::post('/products', [ProductsController::class, 'store'])
 Route::get('/edit-product/{product}', [ProductsController::class, 'editProduct']);
 Route::put('/update-product/{product}', [ProductsController::class, 'updateProduct']);
 Route::put('/update-product-images/{product}', [ProductsController::class, 'updateProductImages']);
+Route::delete('/delete-product-image/{product}', [
+    ProductsController::class,
+    'deleteProductImage'
+]);
+
 
 // Others
 
