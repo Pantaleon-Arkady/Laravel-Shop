@@ -10,6 +10,16 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductsController extends Controller
 {
+    public function deleteProduct(Product $product)
+    {
+        if (!Auth::check() || Auth::user()->role !== 'admin') {
+            abort(403);
+        }
+        
+        $product->delete();
+        return redirect('/shop');
+    }
+
     public function deleteProductImage(Request $request, Product $product)
     {
         if (!Auth::check() || Auth::user()->role !== 'admin') {

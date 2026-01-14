@@ -48,6 +48,8 @@ Route::delete('/delete-product-image/{product}', [
     ProductsController::class,
     'deleteProductImage'
 ]);
+Route::delete('/delete-product/{product}', [ProductsController::class, 'deleteProduct'])
+    ->name('products.delete');
 
 
 // Others

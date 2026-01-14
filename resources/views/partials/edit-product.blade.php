@@ -8,7 +8,21 @@
 </head>
 <body class="flex items-center justify-center bg-black">
     <div class="edit-form-div flex flex-col p-4 bg-white">
-        <h1>Editing Product</h1>
+        <div class="flex flex-row justify-between">
+            <h1>Editing Product</h1>
+            <form action="{{ route('products.delete', $product) }}" method="POST">
+                @csrf
+                @method('DELETE')
+            
+                <button
+                    type="submit"
+                    class="border border-red-600 rounded px-4 py-2 mb-3 text-white bg-red-600 hover:text-red-600 hover:bg-white hover:border-2"
+                    onclick="return confirm('Are you sure you want to delete this product?')"
+                >
+                    Delete Product?
+                </button>
+            </form>
+        </div>
         <div class="border-2 border-black p-4 flex flex-row">
             <form action="/update-product/{{$product->id}}"
                     method="POST"
