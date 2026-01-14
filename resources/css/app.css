@@ -169,6 +169,10 @@
     width: 50%;
 }
 
+.delete_image {
+    cursor: pointer;
+}
+
 
 @media (max-width: 700px) {
     body {

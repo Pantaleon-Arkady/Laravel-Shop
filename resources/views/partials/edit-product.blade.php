@@ -139,7 +139,7 @@
                                     {{-- Optional delete button --}}
                                     <button
                                         type="button"
-                                        class="absolute top-1 right-1 bg-white text-red-600 rounded-full w-6 h-6 text-sm flex items-center justify-center shadow"
+                                        class="absolute top-1 right-1 bg-white text-red-600 rounded-full w-6 h-6 text-sm flex items-center justify-center shadow delete_image hover:border-2 hover:border-red-600"
                                         data-image="{{ $image }}"
                                     >
                                         ✕
