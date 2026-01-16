@@ -1,4 +1,4 @@
-<div class="bg-black px-10 py-5">
+<div class="bg-black home_headers px-10 py-5">
     @auth
         <div class="relative flex items-center">
             <div>

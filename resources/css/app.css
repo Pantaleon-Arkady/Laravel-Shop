@@ -67,11 +67,46 @@
             shadow-[0_15px_30px_rgba(0,0,0,0.35)];
     }
 
+    .user_product_card {
+        @apply
+            min-h-[420px]
+            rounded-xl
+            border border-black
+            bg-black
+            text-white
+            overflow-hidden
+            transition-all
+            duration-300
+            ease-out
+            transform
+            flex
+            flex-col;
+    }
+    
+    .user_product_card:hover {
+        @apply
+            bg-gray-100
+            text-black
+            -translate-y-2
+            scale-[1.03]
+            shadow-[0_20px_40px_rgba(0,0,0,0.35)];
+    }  
+
     .product_card:hover img {
         @apply brightness-95;
     }
 
     .edit-form-div {
+    }
+
+    /* USER SHOP STYLES */
+
+    .user_shop_top {
+        @apply border border-red-600;
+    }
+
+    .user_shop_bottom {
+        @apply border border-green-600;
     }
 
     .header-links {}
@@ -173,9 +208,55 @@
     cursor: pointer;
 }
 
+.each_product_card {
+    width: 20%;
+}
+
+/* SHOP USERS */
+
+.user_product_card {
+    flex: 0 0 calc(25% - 1.5rem);
+    height: 400px;
+}
+
+/* SIGN UP */
+
+.signup_main_div {
+    flex-flow: row;
+}
+
+.mobile_signup_toggle {
+    display: none;
+}
+
+.mobile_app_title {
+    display: none;
+}
 
 @media (max-width: 700px) {
-    body {
+    /* body {
         background-color: black;
+    } */
+    .home_headers {
+        height: 70px;
+        padding-top: 10px;
+    }
+
+    .desktop_signup_toggle {
+        display: none;
+    }
+
+    .signup_main_div {
+        flex-flow: column;
+    }
+
+    .mobile_signup_toggle {
+        display: block;
+    }
+
+    .mobile_app_title {
+        display: block;
+        margin-top: -30px;
+        margin-bottom: 30px;
     }
 }
