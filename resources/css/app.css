@@ -208,10 +208,15 @@
     display: none;
 }
 
+/* POSTS USERS */
+
+.mobile_post_header_feature {
+    display: none;
+}
+
 @media (max-width: 700px) {
-    /* body {
-        background-color: black;
-    } */
+    
+    /* SIGNUP */
     .home_headers {
         height: 70px;
         padding-top: 10px;
@@ -233,5 +238,23 @@
         display: block;
         margin-top: -30px;
         margin-bottom: 30px;
+    }
+
+    /* POSTS HOME */
+
+    .desktop_createPost {
+        display: none;
+    }
+
+    .desktop_logOut {
+        display: none;
+    }
+
+    .post_headers {
+        justify-content: space-between;
+    }
+
+    .mobile_post_header_feature {
+        display: block;
     }
 }

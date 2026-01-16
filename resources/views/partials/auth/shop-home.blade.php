@@ -36,7 +36,7 @@
                             </div>
                         </a>
                     @endforeach
-                </div>           
+                </div>
             </div>
         </div>
     @else

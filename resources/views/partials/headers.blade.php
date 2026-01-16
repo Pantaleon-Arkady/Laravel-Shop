@@ -1,20 +1,26 @@
 <div class="bg-black home_headers px-10 py-5">
     @auth
-        <div class="relative flex items-center">
+        <div class="post_headers relative flex items-center">
             <div>
                 <a href="/shop" class="page-button-hover">Shop</a>
             </div>
         
-            <div class="absolute left-1/2 -translate-x-1/2">
+            <div class="desktop_createPost absolute left-1/2 -translate-x-1/2">
                 <button id="openModal" class="header-buttons">
                     Create a Post?
                 </button>
             </div>
         
-            <div class="ml-auto">
+            <div class="desktop_logOut ml-auto">
                 <a href="/user-logout" class="header-buttons">
                     Log out
                 </a>
+            </div>
+
+            <div class="mobile_post_header_feature" >
+                <button class="text-white">
+                    Toggle
+                </button>
             </div>
         </div>
     @else
