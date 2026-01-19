@@ -17,11 +17,7 @@
                 </a>
             </div>
 
-            <div class="mobile_post_header_feature" >
-                <button class="text-white">
-                    Toggle
-                </button>
-            </div>
+            @include('partials.template.post-header-dropdown')
         </div>
     @else
         <h3 class="text-[30px] font-semibold text-white">Shop</h3>
