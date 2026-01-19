@@ -66,25 +66,6 @@
             scale-[1.02]
             shadow-[0_15px_30px_rgba(0,0,0,0.35)];
     }
-
-    .product_card:hover img {
-        @apply brightness-95;
-    }
-
-    .edit-form-div {
-    }
-
-    /* USER SHOP STYLES */
-
-    .user_shop_top {
-        @apply border border-red-600;
-    }
-
-    .user_shop_bottom {
-        @apply border border-green-600;
-    }
-
-    .header-links {}
 }
 
 /* text-[30px] font-semibold text-white */

@@ -41,44 +41,11 @@
         </div>
     @else
         <div class="flex flex-col w-full">
-            <div class="w-full user_shop_top">
-
+            <div class="border-2 border-black px-5 py-2.5 bg-white">
+                User Shop Main Div Header
             </div>
-            <div class="w-full bg-gray-300 flex flex-wrap justify-center gap-8 p-7">
-                @foreach ($products as $product)
-                    <a href="/view-product/{{$product->id}}" class="user_product_card">
-
-                        <img
-                            src="{{ asset('storage/' . $product->thumbnail) }}"
-                            alt="{{ $product->name }}"
-                            class="w-full h-64 object-cover transition-all duration-300"
-                        />
-                    
-                        <div class="p-4 flex flex-col justify-between h-full">
-                            <div>
-                                <h3 class="font-semibold text-lg mb-1">
-                                    {{ $product->name }}
-                                </h3>
-                    
-                                <p class="text-sm line-clamp-2 text-gray-300 group-hover:text-gray-700">
-                                    {{ $product->description }}
-                                </p>
-                            </div>
-                    
-                            <div class="mt-4 flex justify-between items-center">
-                                <span class="font-bold">
-                                    ₱{{ number_format($product->price, 2) }}
-                                </span>
-                    
-                                @if ($product->stock > 0)
-                                    <span class="text-green-500 text-sm">In stock</span>
-                                @else
-                                    <span class="text-red-500 text-sm">Out of stock</span>
-                                @endif
-                            </div>
-                        </div>
-                    </a>
-                @endforeach
+            <div class="w-full border-2 border-black ">
+                
             </div>
         </div>
     @endif
