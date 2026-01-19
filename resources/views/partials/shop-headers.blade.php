@@ -144,7 +144,7 @@
     
             <button type="submit"
                     class="body-buttons">
-                Create Post
+                Create Product
             </button>
         </form>
     </div>
