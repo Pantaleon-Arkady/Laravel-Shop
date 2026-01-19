@@ -46,4 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
     closeBtn.onclick = () => modal.classList.add('hidden');
     backdrop.onclick = () => modal.classList.add('hidden');
 
+    const mobileHeaderModal = document.getElementById('mobileHeaderModal');
+    const mobileOpenBtn = document.getElementById('mobileOpenBtn');
+    const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+    const mobileBackdrop = document.getElementById('mobileBackdrop');
+
+    mobileOpenBtn.onclick = () => mobileHeaderModal.classList.remove('hidden');
+    mobileCloseBtn.onclick = () => mobileHeaderModal.classList.add('hidden');
+    mobileBackdrop.onclick = () => mobileHeaderModal.classList.add('hidden');
 });
