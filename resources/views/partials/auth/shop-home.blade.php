@@ -44,8 +44,17 @@
             <div class="border-2 border-black px-5 py-2.5 bg-white">
                 User Shop Main Div Header
             </div>
-            <div class="w-full border-2 border-black ">
-                
+            <div class="w-full border-2 border-black flex flex-row  flex-wrap justify-center gap-8 p-7">
+                @foreach ($products as $product)
+                    <a class="border border-black w-60 rounded flex flex-col">
+                        <div>
+
+                        </div>
+                        <div>
+                            product <span>{{ $product->id }}</span>
+                        </div>
+                    </a>
+                @endforeach
             </div>
         </div>
     @endif
