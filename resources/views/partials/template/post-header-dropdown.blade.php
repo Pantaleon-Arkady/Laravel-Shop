@@ -13,7 +13,7 @@
         class="absolute inset-0 bg-black/50"
     ></div>
 
-    <div class="flex flex-row justify-between z-51 border-2 border-white">
+    <div class="flex flex-row justify-between z-51 border-2 border-white text-white">
         <button
             id="mobileCloseBtn"
             class="absolute top-3 right-3 text-white"
